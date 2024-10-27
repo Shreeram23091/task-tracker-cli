@@ -13,8 +13,8 @@ A straightforward command-line interface (CLI) application for managing tasks, e
 1. **Clone the Repository**:
    Open your terminal or command prompt and run:
    ```bash
-   git clone https://github.com/your_username/simple-task-cli.git
-   cd simple-task-cli
+   https://github.com/Shreeram23091/CLI-Task-Manager
+   cd CLI-Task-Manager
    ```
 
 2. **Run the Script**: Ensure you have Python installed. In the same terminal or command prompt, run the script using:
