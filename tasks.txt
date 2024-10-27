@@ -1,1 +1,3 @@
-pending, Buy car
+pending, Buy groceries
+completed, Finish homework
+pending, Read a book

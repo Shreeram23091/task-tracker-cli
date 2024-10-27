@@ -1,23 +1,28 @@
 # Task Manager CLI Tool
 
-A straightforward command-line interface (CLI) application for managing tasks, enabling users to add, view, complete, and delete tasks. Tasks are saved in a text file (`tasks.txt`) to ensure they persist across sessions.
+A simple command-line interface (CLI) application designed for managing tasks. Users can add, view, complete, and delete tasks, with all data stored in a text file (`tasks.txt`) for persistence across sessions.
 
 ## Features
-- **Add a Task**: Users can add a new task with a description.
-- **View Tasks**: Users can view all pending tasks.
-- **Complete a Task**: Users can mark a task as completed, which removes it from the list.
-- **Delete a Task**: Users can delete a task by its number.
+- **Add a Task**: Easily append new tasks with a description, marked as "pending."
+- **View Tasks**: Display all tasks, categorized into pending and completed.
+- **Complete a Task**: Mark a specified task as completed.
+- **Delete a Task**: delete a task from the list by its assigned number.
+
+## Modules Used
+- **`sys`**: This built-in module provides access to system-specific parameters and functions. It allows the program to read user input from the command line, facilitating interaction with the task manager.
+- **`os`**: This built-in module offers a way to use operating system-dependent functionality, such as checking the existence of files. It ensures the application can load tasks from a file or create a new one if it doesn’t exist.
 
 ## Installation
 
-1. **Clone the Repository**:
+1. **Clone the Repository**:  
    Open your terminal or command prompt and run:
    ```bash
-   git clone https://github.com/Shreeram23091/CLI-Task-Manager
-   cd CLI-Task-Manager
+   git clone https://github.com/Shreeram23091/task-tracker-cli
+   cd task-tracker-cli
    ```
 
-2. **Run the Script**: Ensure you have Python installed. In the same terminal or command prompt, run the script using:
+2. **Run the Script**:  
+   Ensure you have Python installed. In the same terminal or command prompt, execute the script using:
    ```bash
    python task_manager.py
    ```
@@ -31,13 +36,27 @@ python task_manager.py add "Your task description"
 ```
 **Example**:
 ```bash
-python task_manager.py add "Buy groceries"
+python task_manager.py add "Buy book"
+Added new task: Buy book
+python task_manager.py add "Buy Grocery"
+Added new task: Buy Grocery
+python task_manager.py add "Read a Book"
+Added new task: Read a Book
 ```
 
-### View Tasks
-To view all pending tasks, run:
+### View All Tasks
+To view all tasks (both pending and completed), run:
 ```bash
 python task_manager.py list
+```
+**Example Output**:
+```
+Pending Tasks:
+1. Buy book
+2. Buy Grocery
+3. Read a Book
+
+Completed Tasks:
 ```
 
 ### Complete a Task
@@ -47,26 +66,64 @@ python task_manager.py complete [task number]
 ```
 **Example**:
 ```bash
-python task_manager.py complete 1
+python task_manager.py complete 2
+Task marked as completed: Buy Grocery
+```
+
+### View Updated Tasks
+After completing a task, view the updated task list:
+```bash
+python task_manager.py list
+```
+**Example Output**:
+```
+Pending Tasks:
+1. Buy book
+3. Read a Book
+
+Completed Tasks:
+2. Buy Grocery
 ```
 
 ### Delete a Task
-To delete a task by its number, run:
+To remove a task by its number, run:
 ```bash
 python task_manager.py delete [task number]
 ```
 **Example**:
 ```bash
-python task_manager.py delete 1
+python task_manager.py delete 3
+Task deleted: Read a Book
+```
+
+### Final View of Tasks
+Check the final task list again:
+```bash
+python task_manager.py list
+```
+**Example Output**:
+```
+Pending Tasks:
+1. Buy book
+
+Completed Tasks:
+2. Buy Grocery
 ```
 
 ## Error Handling
-If an invalid task number is entered for completing or deleting a task, the program will display an error message indicating that the task number is not valid.
+If an invalid task number is provided for completing or deleting a task, the program will display an error message indicating that the task number is invalid.
 
 ## Sample `tasks.txt` Format
-Each line in `tasks.txt` represents a task:
+Each line in `tasks.txt` represents a task in the following format:
 ```
-Buy groceries
-Finish homework
-Read a book
+status, description
 ```
+**Example**:
+```
+pending, Buy groceries
+completed, Finish homework
+pending, Read a book
+```
+```
+
+Feel free to adjust any details as needed! Let me know if there’s anything else you’d like to change.
