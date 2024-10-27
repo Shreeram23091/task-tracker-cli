@@ -13,7 +13,7 @@ A straightforward command-line interface (CLI) application for managing tasks, e
 1. **Clone the Repository**:
    Open your terminal or command prompt and run:
    ```bash
-   https://github.com/Shreeram23091/CLI-Task-Manager
+   git clone https://github.com/Shreeram23091/CLI-Task-Manager
    cd CLI-Task-Manager
    ```
 
