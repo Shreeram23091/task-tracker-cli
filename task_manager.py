@@ -1,30 +1,34 @@
 import sys
 import os
 
-TASKS_FILE = "tasks.txt"
+FILE_NAME = "tasks.txt"
 
 def load_tasks():
-    if not os.path.exists(TASKS_FILE):
+    """Load tasks from the file and return a list of task dictionaries."""
+    if not os.path.exists(FILE_NAME):
         return []
-    with open(TASKS_FILE, "r") as file:
+    with open(FILE_NAME, "r") as file:
         tasks = [line.strip().split(", ", 1) for line in file.readlines()]
         return [{"status": status, "description": description} for status, description in tasks]
 
 def save_tasks(tasks):
-    with open(TASKS_FILE, "w") as file:
+    """Save the current list of tasks to the file."""
+    with open(FILE_NAME, "w") as file:
         for task in tasks:
             file.write(f"{task['status']}, {task['description']}\n")
 
 def add_task(description):
+    """Add a new task with a pending status."""
     tasks = load_tasks()
     tasks.append({"status": "pending", "description": description})
     save_tasks(tasks)
-    print(f"Added task: {description}")
+    print(f"Task added: {description}")
 
 def list_tasks():
+    """Display all tasks, grouped by pending and completed status."""
     tasks = load_tasks()
     if not tasks:
-        print("No tasks available.")
+        print("No tasks found.")
     else:
         print("Pending Tasks:")
         for i, task in enumerate(tasks, 1):
@@ -37,29 +41,31 @@ def list_tasks():
                 print(f"{i}. {task['description']}")
 
 def complete_task(task_number):
+    """Mark a task as completed based on its number."""
     tasks = load_tasks()
     if 0 < task_number <= len(tasks):
-        task_to_complete = tasks[task_number - 1]
-        if task_to_complete["status"] == "pending":
-            task_to_complete["status"] = "completed"
+        task = tasks[task_number - 1]
+        if task["status"] == "pending":
+            task["status"] = "completed"
             save_tasks(tasks)
-            print(f"Completed task: {task_to_complete['description']}")
+            print(f"Task completed: {task['description']}")
         else:
-            print("Task is already completed.")
+            print("Task is already marked as completed.")
     else:
         print("Invalid task number.")
 
 def delete_task(task_number):
+    """Delete a task by its number."""
     tasks = load_tasks()
     if 0 < task_number <= len(tasks):
-        task_to_delete = tasks[task_number - 1]
-        tasks.remove(task_to_delete)
+        task = tasks.pop(task_number - 1)
         save_tasks(tasks)
-        print(f"Deleted task: {task_to_delete['description']}")
+        print(f"Task deleted: {task['description']}")
     else:
         print("Invalid task number.")
 
 def main():
+    """Parse command-line arguments and execute the corresponding function."""
     if len(sys.argv) < 2:
         print("Usage: python task_manager.py [add|list|complete|delete] [arguments...]")
         return
