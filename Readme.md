@@ -61,7 +61,7 @@ python task_manager.py complete [task number]
 ```
 **Example**:
 ```bash
-python task_manager.py complete 2
+python task_manager.py complete 1
 ```
 
 ### Delete a Task
@@ -71,7 +71,7 @@ python task_manager.py delete [task number]
 ```
 **Example**:
 ```bash
-python task_manager.py delete 3
+python task_manager.py delete 1
 ```
 
 ## Error Handling
