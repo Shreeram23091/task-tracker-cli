@@ -36,12 +36,7 @@ python task_manager.py add "Your task description"
 ```
 **Example**:
 ```bash
-python task_manager.py add "Buy book"
-Added new task: Buy book
 python task_manager.py add "Buy Grocery"
-Added new task: Buy Grocery
-python task_manager.py add "Read a Book"
-Added new task: Read a Book
 ```
 
 ### View All Tasks
@@ -53,10 +48,10 @@ python task_manager.py list
 ```
 Pending Tasks:
 1. Buy book
-2. Buy Grocery
 3. Read a Book
 
 Completed Tasks:
+2. Buy Grocery
 ```
 
 ### Complete a Task
@@ -67,47 +62,16 @@ python task_manager.py complete [task number]
 **Example**:
 ```bash
 python task_manager.py complete 2
-Task marked as completed: Buy Grocery
-```
-
-### View Updated Tasks
-After completing a task, view the updated task list:
-```bash
-python task_manager.py list
-```
-**Example Output**:
-```
-Pending Tasks:
-1. Buy book
-3. Read a Book
-
-Completed Tasks:
-2. Buy Grocery
 ```
 
 ### Delete a Task
-To remove a task by its number, run:
+To delete a task by its number, run:
 ```bash
 python task_manager.py delete [task number]
 ```
 **Example**:
 ```bash
 python task_manager.py delete 3
-Task deleted: Read a Book
-```
-
-### Final View of Tasks
-Check the final task list again:
-```bash
-python task_manager.py list
-```
-**Example Output**:
-```
-Pending Tasks:
-1. Buy book
-
-Completed Tasks:
-2. Buy Grocery
 ```
 
 ## Error Handling
@@ -124,6 +88,3 @@ pending, Buy groceries
 completed, Finish homework
 pending, Read a book
 ```
-```
-
-Feel free to adjust any details as needed! Let me know if there’s anything else you’d like to change.
